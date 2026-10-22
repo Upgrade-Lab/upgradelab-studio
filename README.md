@@ -11,6 +11,9 @@ A static viewer for [UpgradeLab](https://github.com/Upgrade-Lab/upgradelab-runne
 
 It never executes contract code or user code. It only reads JSON, validates it with a precompiled validator and draws it with text nodes. Hosted demo: https://upgradelab-studio-anasamasama.vercel.app. Run it locally below.
 
+### Site routes
+`/` landing, `/app` the report viewer (accepts `/app?report=<file>` and `/app?compare=<a>,<b>` for bundled reports only), `/invariants` every invariant id in the bundled reports with a plain-language explanation and the broken migrations whose recorded reports fail it, `/migrations` the five broken migrations and the correct one, `/docs`, `/about`, `/privacy`, `/terms`. Routing uses the History API; `vercel.json` rewrites unknown paths to the shell.
+
 ## Run
 
 Node 22 or newer and pnpm.
@@ -50,7 +53,7 @@ Tests check `compat.json`, `VERSION.json`, the report hashes, that every vendore
 
 ## Develop
 ```bash
-pnpm run typecheck && pnpm test && pnpm run build     # 36 tests (vitest, jsdom)
+pnpm run typecheck && pnpm test && pnpm run build     # vitest, jsdom
 ```
 
 ## Status
