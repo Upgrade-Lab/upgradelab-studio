@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+- Document source-only built-in vault checks, their ABI limits, GitHub Action and replayable six-fixture evidence. Keep published 0.1.1 installation instructions separate from unreleased commands.
+
 ## 0.2.0
 - Product site around the viewer: landing page, shared header and footer, History API router with a Vercel rewrite, `/docs`, `/about`, `/privacy`, `/terms`, a 404 page, favicon, Open Graph image, robots.txt and sitemap.xml.
 - The viewer moved to `/app` and accepts `/app?report=<file>` and `/app?compare=<a>,<b>` for bundled reports only; unknown names are rejected.
