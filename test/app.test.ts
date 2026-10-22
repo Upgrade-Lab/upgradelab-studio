@@ -4,7 +4,8 @@ import { settle, waitFor } from "./helpers.ts";
 async function boot() {
   document.body.innerHTML = '<main id="app"></main>';
   vi.resetModules();
-  await import("../src/main.ts");
+  const { mountApp } = await import("../src/pages/app.ts");
+  mountApp(document.getElementById("app")!);
   await waitFor(".compare");
   await settle();
 }

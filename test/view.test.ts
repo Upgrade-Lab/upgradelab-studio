@@ -1,4 +1,4 @@
-import { readFileSync } from "node:fs";
+import { readFileSync, readdirSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { commonCheckpoints, compareInvariants, compareOps, compareProbes, renderReport } from "../src/view.ts";
 import { load } from "./helpers.ts";
@@ -69,7 +69,7 @@ describe("report rendering", () => {
   });
 
   it("source files never use innerHTML, outerHTML, insertAdjacentHTML, eval or Function", () => {
-    for (const f of ["dom", "main", "validate", "view"]) {
+    for (const f of ["dom", "main", "validate", "view", "router", "shell", "ui", "reports", "content", "explanations", ...readdirSync("src/pages").map((n) => `pages/${n.replace(/\.ts$/, "")}`)]) {
       const text = readFileSync(`src/${f}.ts`, "utf8");
       for (const banned of ["innerHTML", "outerHTML", "insertAdjacentHTML", "document.write", "eval(", "new Function"]) {
         expect(text.includes(banned), `${f}.ts uses ${banned}`).toBe(false);
