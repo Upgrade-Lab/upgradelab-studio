@@ -1,10 +1,11 @@
 :root {
-  --bg: #f5f3ec;
-  --surface: #fffdf8;
+  --bg: #f7f7fb;
+  --surface: #ffffff;
   --ink: #1b2430;
   --muted: #586274;
-  --line: #d8d2c3;
-  --accent: #244a3d;
+  --line: #d9d9e6;
+  --accent: #4f46e5;
+  --deep: #1e1b4b;
   --pass: #17693f;
   --pass-bg: #e3f2e9;
   --fail: #a3231b;
@@ -16,12 +17,12 @@
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #13181c;
-    --surface: #1a2127;
+    --bg: #11111b;
+    --surface: #1a1a29;
     --ink: #e7ebef;
     --muted: #a1abb8;
-    --line: #333d47;
-    --accent: #8fd1b4;
+    --line: #34344a;
+    --accent: #a5b4fc;
     --pass: #7fd6a3;
     --pass-bg: #16301f;
     --fail: #ff9d94;
@@ -34,9 +35,9 @@
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
 body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
-main { max-width: 64rem; margin: 0 auto; padding: 1rem 1rem 3rem; overflow-wrap: anywhere; }
-.skip { position: absolute; left: -999px; }
-.skip:focus { left: 1rem; top: 1rem; background: var(--surface); padding: .5rem 1rem; z-index: 10; }
+main { overflow-wrap: anywhere; }
+.viewer { padding-top: 1rem; padding-bottom: 3rem; }
+main:focus { outline: none; }
 h1 { font-size: 1.6rem; margin: 1rem 0 .25rem; letter-spacing: -.01em; }
 h2 { font-size: 1.35rem; margin: 0 0 .5rem; }
 h3 { font-size: 1.1rem; margin: 1.5rem 0 .5rem; }
