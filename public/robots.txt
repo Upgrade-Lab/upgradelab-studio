@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://upgradelab-studio-anasamasama.vercel.app/sitemap.xml
