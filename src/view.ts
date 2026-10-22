@@ -1,4 +1,5 @@
 import { h } from "./dom.ts";
+import { INVARIANT_EXPLANATIONS } from "./explanations.ts";
 import type { AuthCheck, ExecutedOp, InvariantResult, Json, ProbeReading, Report, Status } from "./types.ts";
 
 const STATUS_LABEL: Record<Status, string> = { pass: "PASS", fail: "FAIL", inconclusive: "INCONCLUSIVE" };
@@ -69,6 +70,7 @@ export function invariantItem(inv: InvariantResult): HTMLElement {
       { open: inv.status !== "pass" ? true : undefined },
       h("summary", {}, badge(inv.status), h("code", {}, inv.id), inv.builtin ? h("span", { class: "tag-pill" }, "built-in") : null, h("span", { class: "tag-pill" }, inv.category)),
       h("p", { class: "inv-title" }, inv.title),
+      INVARIANT_EXPLANATIONS[inv.id] ? h("p", { class: "inv-explain small muted" }, INVARIANT_EXPLANATIONS[inv.id]) : null,
       h("p", { class: "inv-summary" }, inv.summary),
       evidenceView(inv),
     ),
